@@ -6,6 +6,9 @@ import requests
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+def log_command(ctx):
+    print(f"Command: {ctx.message.content} | Author: {ctx.author} | Channel: {ctx.channel}")
+
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
@@ -14,7 +17,7 @@ async def on_ready():
 async def ping(ctx):
     latency = round(bot.latency * 1000)  # Convert to milliseconds and round to an integer
     await ctx.send(f'Pong! Bot Latency: {latency}ms')
-
+    log_command(ctx)
 
 def fetch_random_meme():
     # Use an API to fetch a random meme
@@ -32,5 +35,7 @@ async def meme(ctx):
         await ctx.send(meme_url)
     else:
         await ctx.send("Failed to fetch a meme. Try again later.")
+    log_command(ctx)
+
 
 bot.run('ODUwMTI5NDE3OTEyNzEzMjE3.GnC9f3.a1HUAhyUSufA8sHc_ymTSDqecBI7y4q6Fi0OFY')
