@@ -1,9 +1,6 @@
 from discord.ext import commands
 import requests
 
-#API KEY
-API_KEY = 'bMv9uLOxuj53bPxFeuA1XHGxpoR3BiEO'
-
 def log_command(ctx):
     print(f"Command '{ctx.command.name}' invoked by {ctx.author} in {ctx.guild} channel.")
 
@@ -33,31 +30,33 @@ async def meme(ctx):
         await ctx.send("Failed to fetch a meme. Try again later.")
     log_command(ctx)
 
-#Gif Command
+#Gif Command  # Use Giphy public API to search for a GIF based on the query
 
-def fetch_random_gif():
-    try:
-        response = requests.get(f'https://api.giphy.com/v1/gifs/random?api_key={API_KEY}')
-        response.raise_for_status()
+def fetch_random_gif(api_key, query=None):
+    if query:
+        url = f'https://api.giphy.com/v1/gifs/search?q={query}&api_key={api_key}'
+    else:
+        url = f'https://api.giphy.com/v1/gifs/random?api_key={api_key}'
+
+    response = requests.get(url)
+    if response.status_code == 200:
         gif_data = response.json()
-        gif_url = gif_data.get('data', {}).get('image_original_url')
-        if gif_url:
+        if 'data' in gif_data and len(gif_data['data']) > 0:
+            gif_url = gif_data['data'][0]['images']['original']['url']
             return gif_url
-        else:
-            print("Error: 'image_original_url' not found in the GIPHY API response.")
-            return None
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching random GIF: {e}")
-        return None
+    return None
 
 @commands.command()
-async def gif(ctx):
-    log_command(ctx)  # Log the command
-    gif_url = fetch_random_gif()
+async def gif(ctx, *, query=None):
+    if not query:
+        await ctx.send("Please include a search term after the command to find a GIF. For example: `!gif cats`")
+        return
+
+    gif_url = fetch_random_gif('bMv9uLOxuj53bPxFeuA1XHGxpoR3BiEO', query)
     if gif_url:
         await ctx.send(gif_url)
     else:
-        await ctx.send("Failed to fetch a GIF. Try again later.")
+        await ctx.send(f"No GIFs found for the search term '{query}'. Try another search term!")
 
 #Commands to main file
 def setup(bot):
