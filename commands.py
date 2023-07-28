@@ -1,6 +1,7 @@
 from discord.ext import commands
 import requests
 import discord
+import asyncio
 
 def log_command(ctx):
     print(f"Command '{ctx.command.name}' invoked by {ctx.author} in {ctx.guild} channel.")
@@ -23,7 +24,7 @@ def fetch_random_meme():
     return None
 
 @commands.command()
-async def meme(ctx):
+async def memes(ctx):
     meme_url = fetch_random_meme()
     if meme_url:
         await ctx.send(meme_url)
@@ -59,9 +60,38 @@ async def gif(ctx, *, query=None):
     else:
         await ctx.send(f"No GIFs found for the search term '{query}'. Try another search term!")
 
+#Meme Battle Command---
+
+@commands.command()
+async def meme_battle(ctx):
+    await ctx.send("Meme battle is about to begin! Type `!meme` followed by your meme caption to join the battle.")
+
+    def check(message):
+        return message.author == ctx.author and message.channel == ctx.channel
+
+    try:
+        # Get the user's meme caption
+        message = await ctx.bot.wait_for("message", check=check, timeout=60.0)
+        user_caption = message.content
+
+        # Get a random meme
+        meme_url = fetch_random_meme()
+        if not meme_url:
+            await ctx.send("Failed to fetch a meme. Try again later.")
+            return
+
+        # Display the random meme with the user's caption
+        embed = discord.Embed(title="Meme Battle", description=f"{user_caption}\n\n[Original Meme]({meme_url})")
+        embed.set_image(url=meme_url)
+        await ctx.send(embed=embed)
+    except asyncio.TimeoutError:
+        await ctx.send("Meme battle timed out. Try again later.")
+
+
 
 #Commands to main file
 def setup(bot):
     bot.add_command(ping)  # Ping Command
-    bot.add_command(meme)  # Meme Command
+    bot.add_command(memes)  # Meme Command
     bot.add_command(gif) #GIF Command (Tenor)
+    bot.add_command(meme_battle) #Meme Battle Command
