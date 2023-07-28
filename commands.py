@@ -1,5 +1,6 @@
 from discord.ext import commands
 import requests
+import discord
 
 def log_command(ctx):
     print(f"Command '{ctx.command.name}' invoked by {ctx.author} in {ctx.guild} channel.")
@@ -58,8 +59,25 @@ async def gif(ctx, *, query=None):
     else:
         await ctx.send(f"No GIFs found for the search term '{query}'. Try another search term!")
 
+#Help Command
+
+@commands.command()
+async def help(ctx):
+    # Create an embed
+    embed = discord.Embed(title="Bot Commands", color=discord.Color.blue())
+
+    # Add fields for each command
+    embed.add_field(name="!ping", value="Check the bot's latency.", inline=False)
+    embed.add_field(name="!meme", value="Get a random meme.", inline=False)
+    embed.add_field(name="!gif <search term>", value="Search for a specific gif.", inline=False)
+    # Add more fields for other commands if needed
+
+    # Send the embed to the channel
+    await ctx.send(embed=embed)
+
 #Commands to main file
 def setup(bot):
     bot.add_command(ping)  # Ping Command
     bot.add_command(meme)  # Meme Command
     bot.add_command(gif) #GIF Command (Tenor)
+    bot.add_command(help) #Help Command
