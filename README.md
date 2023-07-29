@@ -1,45 +1,98 @@
-# Albin - Meme Bot
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Bot's Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+        }
 
-![Bot Logo]("H:\My Drive\Software Dev\Albin\Albin Logo-01-01.png")
+        h1 {
+            color: #ff5a5f;
+        }
 
-## Description
+        .logo {
+            max-width: 200px;
+            display: block;
+            margin: 0 auto;
+        }
 
-Your Bot's Name is a Discord bot that provides random memes and GIFs, and also allows users to participate in meme battles.
+        .commands {
+            margin-top: 20px;
+        }
 
-## Installation
+        .command {
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
 
-To use Your Bot's Name, follow these steps:
+        .command h2 {
+            margin: 0;
+            color: #ff5a5f;
+        }
 
-1. Clone this repository to your local machine.
-2. Install the required dependencies using pip:
-3. Create a new Discord bot on the [Discord Developer Portal](https://discord.com/developers/applications).
-4. Copy the bot token and paste it in the `config.py` file.
-5. Run the bot using the following command:
+        .command p {
+            margin: 0;
+        }
 
-## How to Use
+        .footer {
+            margin-top: 40px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Bot's Name</h1>
+    <img class="logo" src="link_to_your_bot_logo.png" alt="Bot Logo">
 
-Your Bot's Name responds to the following commands:
+    <h2>Description</h2>
+    <p>Your Bot's Name is a Discord bot that provides random memes and GIFs, and also allows users to participate in meme battles.</p>
 
-- `!ping`: Get the bot's latency.
-- `!meme`: Get a random meme.
-- `!gif [query]`: Search and get a GIF based on the query.
-- `!meme_battle`: Participate in a meme battle with your own caption.
+    <h2>Installation</h2>
+    <ol>
+        <li>Clone this repository to your local machine.</li>
+        <li>Install the required dependencies using pip:</li>
+    </ol>
+    <pre>pip install -r requirements.txt</pre>
+    <ol start="3">
+        <li>Create a new Discord bot on the <a href="https://discord.com/developers/applications">Discord Developer Portal</a>.</li>
+        <li>Copy the bot token and paste it in the <code>config.py</code> file.</li>
+        <li>Run the bot using the following command:</li>
+    </ol>
+    <pre>python index.py</pre>
 
-## Contributing
+    <h2>How to Use</h2>
+    <div class="commands">
+        <div class="command">
+            <h2>!ping</h2>
+            <p>Get the bot's latency.</p>
+        </div>
+        <div class="command">
+            <h2>!meme</h2>
+            <p>Get a random meme.</p>
+        </div>
+        <div class="command">
+            <h2>!gif [query]</h2>
+            <p>Search and get a GIF based on the query.</p>
+        </div>
+        <div class="command">
+            <h2>!meme_battle</h2>
+            <p>Participate in a meme battle with your own caption.</p>
+        </div>
+    </div>
 
-If you'd like to contribute to Your Bot's Name, feel free to create a pull request with your changes. We welcome any improvements or new features!
+    <h2>Contributing</h2>
+    <p>If you'd like to contribute to Your Bot's Name, feel free to create a pull request with your changes. We welcome any improvements or new features!</p>
 
-## License
+    <h2>License</h2>
+    <p>Your Bot's Name is open-source and available under the <a href="link_to_license">MIT License</a>.</p>
 
-Your Bot's Name is open-source and available under the [MIT License](link_to_license).
+    <h2>Acknowledgments</h2>
+    <p>Special thanks to <a href="https://tenor.com/gifapi">Tenor</a> for providing the GIF API, and <a href="https://meme-api.com/">Meme API</a> for providing the meme API.</p>
 
-## Acknowledgments
-
-Special thanks to [Gify](https://gify.com/gifapi) for providing the GIF API, and [Meme API](https://meme-api.com/) for providing the meme API.
-
-## Contact
-
-If you have any questions or need help, you can reach out to me on Discord: marwany21
-
-
-
+    <div class="footer">
