@@ -1,98 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Your Bot's Name</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            padding: 0;
-        }
+# Albin 1 - Simple Meme Bot Template
 
-        h1 {
-            color: #ff5a5f;
-        }
+Albin 1 is a simple Discord bot template designed to create a meme bot for your Discord server. This template provides a basic setup for a bot that can fetch random memes and GIFs, participate in meme battles, and respond to pings. It serves as a starting point for anyone interested in building their own meme bot.
 
-        .logo {
-            max-width: 200px;
-            display: block;
-            margin: 0 auto;
-        }
+## Features
 
-        .commands {
-            margin-top: 20px;
-        }
+- Fetch random memes with `!meme`.
+- Search for GIFs with `!gif [query]`.
+- Participate in meme battles with `!meme_battle`.
+- Get the bot's latency with `!ping`.
 
-        .command {
-            margin-bottom: 10px;
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-        }
+## Installation
 
-        .command h2 {
-            margin: 0;
-            color: #ff5a5f;
-        }
+To use this template and create your own meme bot, follow these steps:
 
-        .command p {
-            margin: 0;
-        }
+1. Clone or download this repository to your local machine.
+2. Install the required dependencies using `pip install -r requirements.txt`.
+3. Open the `index.py` file in a code editor.
+4. Replace `YOUR_TOKEN_HERE` with your Discord bot token. You can obtain a bot token by creating a new bot on the [Discord Developer Portal](https://discord.com/developers/applications).
+5. Customize the bot's commands, add new features, or modify the behavior to suit your needs.
 
-        .footer {
-            margin-top: 40px;
-            color: #777;
-        }
-    </style>
-</head>
-<body>
-    <h1>Your Bot's Name</h1>
-    <img class="logo" src="link_to_your_bot_logo.png" alt="Bot Logo">
+## How to Run
 
-    <h2>Description</h2>
-    <p>Your Bot's Name is a Discord bot that provides random memes and GIFs, and also allows users to participate in meme battles.</p>
+To run the bot, simply execute the `index.py` file using Python:
+The bot will log in to Discord and be ready to use in the server where it was invited.
 
-    <h2>Installation</h2>
-    <ol>
-        <li>Clone this repository to your local machine.</li>
-        <li>Install the required dependencies using pip:</li>
-    </ol>
-    <pre>pip install -r requirements.txt</pre>
-    <ol start="3">
-        <li>Create a new Discord bot on the <a href="https://discord.com/developers/applications">Discord Developer Portal</a>.</li>
-        <li>Copy the bot token and paste it in the <code>config.py</code> file.</li>
-        <li>Run the bot using the following command:</li>
-    </ol>
-    <pre>python index.py</pre>
+## Contributing
 
-    <h2>How to Use</h2>
-    <div class="commands">
-        <div class="command">
-            <h2>!ping</h2>
-            <p>Get the bot's latency.</p>
-        </div>
-        <div class="command">
-            <h2>!meme</h2>
-            <p>Get a random meme.</p>
-        </div>
-        <div class="command">
-            <h2>!gif [query]</h2>
-            <p>Search and get a GIF based on the query.</p>
-        </div>
-        <div class="command">
-            <h2>!meme_battle</h2>
-            <p>Participate in a meme battle with your own caption.</p>
-        </div>
-    </div>
+This bot template is open source, and contributions are welcome. If you have any improvements, bug fixes, or new features to add, feel free to submit a pull request. Please refer to the CONTRIBUTING.md file for more details on how to contribute.
 
-    <h2>Contributing</h2>
-    <p>If you'd like to contribute to Your Bot's Name, feel free to create a pull request with your changes. We welcome any improvements or new features!</p>
+## License
 
-    <h2>License</h2>
-    <p>Your Bot's Name is open-source and available under the <a href="link_to_license">MIT License</a>.</p>
+This bot template is released under the MIT License. You can find the full license in the LICENSE file.
 
-    <h2>Acknowledgments</h2>
-    <p>Special thanks to <a href="https://tenor.com/gifapi">Tenor</a> for providing the GIF API, and <a href="https://meme-api.com/">Meme API</a> for providing the meme API.</p>
+## Acknowledgments
 
-    <div class="footer">
+Special thanks to the Discord.py community and any external libraries or APIs used to build this template.
+
+---
+
+Please note that this template provides a basic setup for a simple meme bot. It's a starting point, and you can expand and customize it further to create a more advanced bot with additional features. Happy coding!
