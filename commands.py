@@ -6,7 +6,7 @@ import asyncio
 def log_command(ctx):
     print(f"Command '{ctx.command.name}' invoked by {ctx.author} in {ctx.guild} channel.")
 
-@commands.command()
+@commands.command(help="Sends a message with the bot's ping") 
 async def ping(ctx):
     latency = round(ctx.bot.latency * 1000)  # Convert to milliseconds and round to an integer
     await ctx.send(f'Pong! Bot Latency: {latency}ms')
@@ -23,7 +23,7 @@ def fetch_random_meme():
         return meme_url
     return None
 
-@commands.command()
+@commands.command(help="Returns a Meme")
 async def memes(ctx):
     meme_url = fetch_random_meme()
     if meme_url:
@@ -48,7 +48,7 @@ def fetch_random_gif(api_key, query=None):
             return gif_url
     return None
 
-@commands.command()
+@commands.command(help="Returns a Gif with the search query used")
 async def gif(ctx, *, query=None):
     if not query:
         await ctx.send("Please include a search term after the command to find a GIF. For example: `!gif cats`")
@@ -62,8 +62,8 @@ async def gif(ctx, *, query=None):
 
 #Meme Battle Command---
 
-@commands.command()
-async def meme_battle(ctx):
+@commands.command(help="Starts a meme battle with server members")
+async def memebattle(ctx):
     await ctx.send("Meme battle is about to begin! Type `!meme` followed by your meme caption to join the battle.")
 
     def check(message):
@@ -94,4 +94,4 @@ def setup(bot):
     bot.add_command(ping)  # Ping Command
     bot.add_command(memes)  # Meme Command
     bot.add_command(gif) #GIF Command (Tenor)
-    bot.add_command(meme_battle) #Meme Battle Command
+    bot.add_command(memebattle) #Meme Battle Command
