@@ -54,7 +54,7 @@ async def gif(ctx, *, query=None):
         await ctx.send("Please include a search term after the command to find a GIF. For example: `!gif cats`")
         return
 
-    gif_url = fetch_random_gif('bMv9uLOxuj53bPxFeuA1XHGxpoR3BiEO', query)
+    gif_url = fetch_random_gif('GIFY_API_KEY', query)
     if gif_url:
         await ctx.send(gif_url)
     else:

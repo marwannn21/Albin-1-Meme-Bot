@@ -60,4 +60,4 @@ async def on_message(message):
 import commands
 commands.setup(bot)
 
-bot.run('ODUwMTI5NDE3OTEyNzEzMjE3.GnC9f3.a1HUAhyUSufA8sHc_ymTSDqecBI7y4q6Fi0OFY')
+bot.run('YOUR_TOKEN')

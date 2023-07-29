@@ -17,7 +17,8 @@ To use this template and create your own meme bot, follow these steps:
 2. Install the required dependencies using `pip install -r requirements.txt`.
 3. Open the `index.py` file in a code editor.
 4. Replace `YOUR_TOKEN_HERE` with your Discord bot token. You can obtain a bot token by creating a new bot on the [Discord Developer Portal](https://discord.com/developers/applications).
-5. Customize the bot's commands, add new features, or modify the behavior to suit your needs.
+5. To enable GIF search functionality, you will need to get a GIPHY API key. Visit the [GIPHY Developers](https://developers.giphy.com/) website, sign up for an account, and create a new app to get the API key. Replace `YOUR_GIPHY_API_KEY` with your GIPHY API key in the `fetch_random_gif` function in the `commands.py` file.
+6. Customize the bot's commands, add new features, or modify the behavior to suit your needs.
 
 ## How to Run
 
